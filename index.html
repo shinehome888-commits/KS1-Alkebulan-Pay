@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KS1 ALKEBULAN PAY – Digital Trade for Ghanaian SMEs</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <title>KS1 ALKEBULAN PAY – Digital Trade for Alkebulan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --deep-blue: #002147;
+      --deep-blue: #001A3D;
       --gold: #D4AF37;
-      --light: #f8f9fa;
+      --bg: #050A16;
     }
     * {
       margin: 0;
@@ -18,9 +20,16 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: var(--deep-blue);
-      color: white;
+      background: var(--bg) url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23D4AF37' opacity='0.3'/%3E%3Ccircle cx='120' cy='30' r='0.8' fill='%23fff' opacity='0.4'/%3E%3Ccircle cx='180' cy='150' r='0.6' fill='%23D4AF37' opacity='0.2'/%3E%3Ccircle cx='20' cy='180' r='0.9' fill='%23fff' opacity='0.3'/%3E%3C/svg%3E") repeat;
+      background-size: 400px 400px;
+      animation: drift 120s linear infinite;
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.6;
+      min-height: 100vh;
+    }
+    @keyframes drift {
+      from { background-position: 0 0; }
+      to { background-position: 400px 400px; }
     }
     .container {
       max-width: 1200px;
@@ -29,86 +38,114 @@
     }
     header {
       text-align: center;
-      padding: 60px 0 40px;
+      padding: 80px 0 50px;
     }
-    h1 {
-      font-size: 48px;
+    .logo {
+      font-family: 'Orbitron', sans-serif;
       font-weight: 700;
-      margin-bottom: 16px;
+      font-size: 64px;
+      letter-spacing: -1px;
       background: linear-gradient(to right, #fff, var(--gold));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
     }
     .subtitle {
-      font-size: 20px;
+      font-size: 22px;
       color: #ccc;
       max-width: 700px;
       margin: 0 auto;
+      line-height: 1.5;
     }
     .hero {
       background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 24px;
+      padding: 50px;
       text-align: center;
-      margin: 40px 0;
-      border: 1px solid rgba(255,255,255,0.1);
+      margin: 50px 0;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      backdrop-filter: blur(10px);
     }
     .btn {
-      display: inline-block;
-      background: var(--gold);
+      background: linear-gradient(145deg, #ffd700, #b8860b);
       color: var(--deep-blue);
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
+      border: none;
+      padding: 16px 36px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
       font-size: 18px;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow:
+        0 8px 0 #a67c00,
+        0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: transform 0.15s, box-shadow 0.15s;
       text-decoration: none;
-      margin: 12px;
-      transition: transform 0.2s;
+      display: inline-block;
+      margin: 14px;
     }
     .btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow:
+        0 10px 0 #a67c00,
+        0 12px 30px rgba(212, 175, 55, 0.4);
+    }
+    .btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #a67c00, 0 4px 15px rgba(0, 0, 0, 0.4);
     }
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin: 60px 0;
+      gap: 30px;
+      margin: 70px 0;
     }
     .card {
       background: rgba(255,255,255,0.08);
-      padding: 24px;
-      border-radius: 16px;
+      padding: 30px;
+      border-radius: 20px;
       border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.3);
     }
     .card h3 {
+      font-family: 'Orbitron', sans-serif;
       color: var(--gold);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       font-size: 20px;
     }
     footer {
       text-align: center;
-      padding: 40px 0 20px;
+      padding: 60px 0 30px;
       color: #aaa;
-      font-size: 14px;
+      font-size: 15px;
       border-top: 1px solid rgba(255,255,255,0.05);
-      margin-top: 40px;
+      margin-top: 50px;
     }
-    @media (max-width: 600px) {
-      h1 { font-size: 36px; }
-      .btn { display: block; margin: 12px auto; width: 90%; }
+    @media (max-width: 768px) {
+      .logo { font-size: 48px; }
+      .hero { padding: 30px; }
+      .btn { display: block; width: 90%; margin: 14px auto; }
+    }
+    @media (max-width: 480px) {
+      .logo { font-size: 36px; }
+      header { padding: 60px 0 40px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>KS1 ALKEBULAN PAY</h1>
-      <p class="subtitle">A nonprofit digital trade infrastructure for Ghanaian SMEs by KS1 Empire Group & Foundation (KS1EGF)</p>
+      <h1 class="logo">KS1<span style="color:#D4AF37">ALKEBULAN</span>PAY</h1>
+      <p class="subtitle">A nonprofit digital trade infrastructure built in Ghana, for Alkebulan (Africa) — empowering SMEs through ethical, transparent technology.</p>
     </header>
 
     <div class="hero">
-      <h2>Start Your Digital Trade Journey</h2>
-      <p>Secure, transparent, and community-powered support for entrepreneurs and small businesses.</p>
+      <h2>Begin Your Digital Trade Journey</h2>
+      <p>Secure identity. Trusted transactions. Community-powered support.</p>
       <a href="https://ks1-alkebulan-pay-identity-hub.pages.dev" class="btn">Create Account</a>
       <a href="https://ks1-alkebulan-pay-admin.pages.dev" class="btn">Admin Login</a>
     </div>
@@ -116,25 +153,25 @@
     <div class="features">
       <div class="card">
         <h3>🔐 Identity Hub</h3>
-        <p>Register your business with a unique Trade ID. Choose phone or wallet-based onboarding.</p>
+        <p>Register with a unique Trade ID. Choose phone or wallet onboarding.</p>
       </div>
       <div class="card">
         <h3>🤝 Trade Coordination</h3>
-        <p>Initiate and manage B2B trades with trusted partners across Ghana.</p>
+        <p>Initiate B2B trades with verified partners across Alkebulan.</p>
       </div>
       <div class="card">
         <h3>🛡️ Secure Transactions</h3>
-        <p>Use escrow protection to ensure safe, verified payments and deliveries.</p>
+        <p>Escrow protection via licensed payment providers. Zero fund custody.</p>
       </div>
       <div class="card">
         <h3>💡 Trade Support</h3>
-        <p>Check eligibility for donor-funded SME support programs based on your reputation.</p>
+        <p>Reputation-based eligibility for donor-funded SME programs.</p>
       </div>
     </div>
 
     <footer>
       <p>© 2026 KS1 ALKEBULAN PAY – A nonprofit project by KS1 Empire Group & Foundation (KS1EGF)</p>
-      <p>Empowering Ghanaian SMEs through ethical, transparent digital trade.</p>
+      <p>Built in Ghana • For Alkebulan (Africa) • One Love. One Mission.</p>
     </footer>
   </div>
 </body>
