@@ -95,7 +95,7 @@ This project is a **nonprofit initiative** by **KS1 Empire Group & Foundation (K
 
 ## ❤️ One Love. One Mission.
 
-Built with care in Ghana, for Africa.  
+Built with care in Ghana, for Alkebulan (Africa).  
 By **Shine Jones** • Founder, KS1EGF
 
 > “Technology should serve people — not the other way around.”
