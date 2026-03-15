@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Register Your Business – KS1 ALKEBULAN PAY</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: #050A16;
@@ -90,9 +86,7 @@
       color: white;
       font-size: 16px;
     }
-    input::placeholder {
-      color: #777;
-    }
+    input::placeholder { color: #777; }
     .btn {
       background: #D4AF37;
       color: #001A3D;
@@ -106,13 +100,8 @@
       margin-top: 20px;
       transition: opacity 0.2s;
     }
-    .btn:hover {
-      opacity: 0.95;
-    }
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
+    .btn:hover { opacity: 0.95; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
     .step { display: none; }
     .step.active { display: block; }
   </style>
@@ -129,20 +118,16 @@
         <div class="progress-step" id="step4-ind">4</div>
       </div>
 
-      <!-- STEP 1 -->
       <div class="step active" id="step1">
         <h2 class="step-title">Step 1: Your Contact Information</h2>
         <p class="step-desc">We use WhatsApp for notifications. Wallet is optional and can be added later.</p>
-        
         <input type="text" id="fullName" placeholder="Full Name (Business Owner)" required />
         <input type="tel" id="phone" placeholder="WhatsApp Number (e.g. +233240000000)" required />
         <input type="text" id="wallet" placeholder="Crypto Wallet Address (Optional – leave blank if unsure)" />
         <input type="password" id="password" placeholder="Password" required />
-        
         <button class="btn" onclick="nextStep(1)">Continue</button>
       </div>
 
-      <!-- STEP 2 -->
       <div class="step" id="step2">
         <h2 class="step-title">Step 2: Business Details</h2>
         <input type="text" id="businessName" placeholder="Business Name" required />
@@ -162,7 +147,6 @@
         <button class="btn" onclick="nextStep(2)">Continue</button>
       </div>
 
-      <!-- STEP 3 -->
       <div class="step" id="step3">
         <h2 class="step-title">Step 3: Owner Identity</h2>
         <input type="date" id="ownerBirthday" required />
@@ -180,7 +164,6 @@
         <button class="btn" onclick="nextStep(3)">Continue</button>
       </div>
 
-      <!-- STEP 4 -->
       <div class="step" id="step4">
         <h2 class="step-title">Step 4: Confirm & Submit</h2>
         <p class="step-desc">Review your information before submitting.</p>
@@ -192,11 +175,12 @@
     </div>
   </div>
 
+  <!-- NO EXTERNAL SCRIPTS -->
   <script>
     const API_BASE = 'https://ks1-sme-onboarding-system.onrender.com/api/onboarding';
     let userId = null;
     let smeId = null;
-    let uploadedDocUrl = 'https://example.com/fallback-id.jpg';
+    let uploadedDocUrl = 'https://example.com/fallback.jpg';
 
     function showStep(step) {
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
