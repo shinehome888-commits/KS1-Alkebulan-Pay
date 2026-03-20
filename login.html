@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Login – KS1 ALKEBULAN PAY</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f9ff; padding: 20px; }
+    .form { max-width: 400px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+    input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #1e3a8a; color: white; padding: 12px; border: none; border-radius: 4px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="form">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p style="margin-top: 15px;">
+      Don't have an account? <a href="register.html">Register here</a>
+    </p>
+  </div>
+
+  <script>
+    function login() {
+      // For now, redirect to Command Center login
+      window.location.href = 'https://ks1-alkebulan-pay-command-center.onrender.com/login.html';
+    }
+  </script>
+</body>
+</html>
