@@ -3,319 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Register Your Business – KS1 ALKEBULAN PAY</title>
+  <title>Onboarding – KS1 ALKEBULAN PAY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
+    :root {
+      --deep-blue: #001A3D;
+      --gold: #D4AF37;
+      --bg: #050A16;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'Inter', sans-serif;
-      background: #050A16;
-      color: white;
+    }
+    body {
+      background: var(--bg) url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23D4AF37' opacity='0.3'/%3E%3Ccircle cx='120' cy='30' r='0.8' fill='%23fff' opacity='0.4'/%3E%3Ccircle cx='180' cy='150' r='0.6' fill='%23D4AF37' opacity='0.2'/%3E%3Ccircle cx='20' cy='180' r='0.9' fill='%23fff' opacity='0.3'/%3E%3C/svg%3E") repeat;
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.6;
       min-height: 100vh;
-      padding: 0;
+      padding: 20px;
     }
     .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.05);
+      max-width: 600px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.08);
+      padding: 40px;
+      border-radius: 20px;
       border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: 16px;
-      padding: 32px;
-      backdrop-filter: blur(10px);
     }
     h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--gold);
       text-align: center;
-      color: #D4AF37;
-      font-size: 28px;
-      margin-bottom: 32px;
-      font-weight: 700;
+      margin-bottom: 30px;
     }
-    .progress {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 32px;
-      position: relative;
+    .form-group {
+      margin-bottom: 20px;
     }
-    .progress::before {
-      content: '';
-      position: absolute;
-      top: 12px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #333;
-      z-index: 1;
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
-    .progress-step {
-      width: 26px;
-      height: 26px;
-      background: #333;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #999;
-      font-weight: bold;
-      position: relative;
-      z-index: 2;
-    }
-    .progress-step.active {
-      background: #D4AF37;
-      color: #001A3D;
-    }
-    .step-title {
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-    .step-desc {
-      color: #aaa;
-      margin-bottom: 24px;
-      font-size: 15px;
-    }
-    input, select {
+    input {
       width: 100%;
       padding: 14px;
-      margin: 12px 0;
-      border-radius: 10px;
-      border: 1px solid #444;
-      background: #111;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
       color: white;
       font-size: 16px;
     }
-    input::placeholder { color: #777; }
-    .btn {
-      background: #D4AF37;
-      color: #001A3D;
+    input::placeholder {
+      color: #aaa;
+    }
+    button {
+      background: linear-gradient(145deg, #ffd700, #b8860b);
+      color: var(--deep-blue);
       border: none;
-      padding: 14px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 17px;
+      padding: 16px 36px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      border-radius: 14px;
       cursor: pointer;
       width: 100%;
-      margin-top: 20px;
-      transition: opacity 0.2s;
+      margin-top: 10px;
     }
-    .btn:hover { opacity: 0.95; }
-    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-    .step { display: none; }
-    .step.active { display: block; }
+    .error {
+      color: #ff6b6b;
+      margin: 15px 0;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--gold);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>KS1 SME Onboarding</h1>
-
-    <div class="card">
-      <div class="progress">
-        <div class="progress-step active" id="step1-ind">1</div>
-        <div class="progress-step" id="step2-ind">2</div>
-        <div class="progress-step" id="step3-ind">3</div>
-        <div class="progress-step" id="step4-ind">4</div>
+    <h1>Business Onboarding</h1>
+    <div id="error" class="error"></div>
+    
+    <form id="onboardingForm">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="e.g., Kwame Asante" required>
       </div>
-
-      <div class="step active" id="step1">
-        <h2 class="step-title">Step 1: Your Contact Information</h2>
-        <p class="step-desc">We use WhatsApp for notifications. Wallet is optional and can be added later.</p>
-        <input type="text" id="fullName" placeholder="Full Name (Business Owner)" required />
-        <input type="tel" id="phone" placeholder="WhatsApp Number (e.g. +233240000000)" required />
-        <input type="text" id="wallet" placeholder="Crypto Wallet Address (Optional – leave blank if unsure)" />
-        <input type="password" id="password" placeholder="Password" required />
-        <button class="btn" onclick="nextStep(1)">Continue</button>
+      <div class="form-group">
+        <label for="phone">WhatsApp Phone (+233...)</label>
+        <input type="tel" id="phone" placeholder="+233240000000" required>
       </div>
-
-      <div class="step" id="step2">
-        <h2 class="step-title">Step 2: Business Details</h2>
-        <input type="text" id="businessName" placeholder="Business Name" required />
-        <select id="businessType" required>
-          <option value="">Select Business Type</option>
-          <option value="SME">SME</option>
-          <option value="Entrepreneur">Entrepreneur</option>
-          <option value="Trader">Trader</option>
-          <option value="NGO">NGO</option>
-        </select>
-        <input type="text" id="industry" placeholder="Industry (e.g. Agriculture, Retail)" required />
-        <input type="text" id="country" value="Ghana" readonly />
-        <input type="text" id="city" placeholder="City (e.g. Accra)" required />
-        <input type="text" id="town" placeholder="Town/Area (e.g. Osu)" required />
-        <input type="text" id="address" placeholder="Full Business Address" required />
-        <button class="btn" onclick="prevStep(2)">Back</button>
-        <button class="btn" onclick="nextStep(2)">Continue</button>
+      <div class="form-group">
+        <label for="wallet">Wallet Address (Optional)</label>
+        <input type="text" id="wallet" placeholder="0x...">
       </div>
-
-      <div class="step" id="step3">
-        <h2 class="step-title">Step 3: Owner Identity</h2>
-        <input type="date" id="ownerBirthday" required />
-        <input type="date" id="businessBirthday" required />
-        <select id="idType" required>
-          <option value="">Select ID Type</option>
-          <option value="Ghana Card">Ghana Card</option>
-          <option value="Passport">Passport</option>
-          <option value="Driver's License">Driver's License</option>
-        </select>
-        <input type="text" id="idNumber" placeholder="National ID Number" required />
-        <p style="color:#aaa; margin:12px 0; font-size:14px;">Upload ID Document (image only, max 5MB)</p>
-        <input type="file" id="idDocument" accept="image/*" required />
-        <button class="btn" onclick="prevStep(3)">Back</button>
-        <button class="btn" onclick="nextStep(3)">Continue</button>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required>
       </div>
+      <button type="submit">Submit Application</button>
+    </form>
 
-      <div class="step" id="step4">
-        <h2 class="step-title">Step 4: Confirm & Submit</h2>
-        <p class="step-desc">Review your information before submitting.</p>
-        <div id="review"></div>
-        <button class="btn" onclick="prevStep(4)">Back</button>
-        <button class="btn" onclick="submitOnboarding()" id="submitBtn">Submit Registration</button>
-        <div id="errorMsg" class="error" style="color:#ff6b6b; margin-top:10px; font-size:14px;"></div>
-      </div>
-    </div>
+    <a href="/" class="back-link">← Back to Home</a>
   </div>
 
-  <!-- NO EXTERNAL SCRIPTS — ALL LOGIC INLINE -->
   <script>
-    const API_BASE = 'https://ks1-sme-onboarding-system.onrender.com/api/onboarding';
-    let userId = null;
-    let smeId = null;
-    let uploadedDocUrl = 'https://example.com/fallback.jpg';
-
-    function showStep(step) {
-      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-      document.getElementById(`step${step}`).classList.add('active');
-      document.querySelectorAll('.progress-step').forEach((el, i) => {
-        el.classList.toggle('active', i < step);
-      });
-    }
-
-    function nextStep(current) {
-      if (current === 1) createAccount();
-      else if (current === 2) createSMEProfile();
-      else if (current === 3) uploadDocument();
-      else { showStep(4); buildReview(); }
-    }
-
-    function prevStep(current) { showStep(current - 1); }
-
-    async function createAccount() {
+    document.getElementById('onboardingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
       const fullName = document.getElementById('fullName').value;
       const phone = document.getElementById('phone').value;
-      const wallet = document.getElementById('wallet').value.trim() || null;
+      const wallet = document.getElementById('wallet').value;
       const password = document.getElementById('password').value;
 
-      if (!phone.startsWith('+233')) {
-        alert('Please enter a valid Ghana WhatsApp number starting with +233');
-        return;
-      }
-
       try {
-        const res = await fetch(`${API_BASE}/create-account`, {
+        // Step 1: Create account
+        let res = await fetch('https://ks1-sme-onboarding-system.onrender.com/api/onboarding/create-account', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ fullName, phone, wallet, password })
         });
-        const result = await res.json();
-        if (result.success) { userId = result.userId; showStep(2); }
-        else alert('Error: ' + result.message);
-      } catch (err) { alert('Network error.'); }
-    }
 
-    async function createSMEProfile() {
-      const data = {
-        userId,
-        businessName: document.getElementById('businessName').value,
-        businessType: document.getElementById('businessType').value,
-        industry: document.getElementById('industry').value,
-        country: 'Ghana',
-        city: document.getElementById('city').value,
-        address: `${document.getElementById('town').value}, ${document.getElementById('address').value}`
-      };
-      try {
-        const res = await fetch(`${API_BASE}/create-sme-profile`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        const result = await res.json();
-        if (result.success) { smeId = result.smeId; showStep(3); }
-        else alert('Error: ' + result.message);
-      } catch (err) { alert('Error creating profile.'); }
-    }
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.message || 'Failed to create account');
+        }
+        const data1 = await res.json();
 
-    async function uploadDocument() {
-      const file = document.getElementById('idDocument').files[0];
-      if (!file) return alert('Please select an ID document.');
-      const formData = new FormData();
-      formData.append('document', file);
-      formData.append('smeId', smeId);
-      formData.append('documentType', 'NATIONAL_ID');
-
-      try {
-        const res = await fetch(`${API_BASE}/upload-document`, {
-          method: 'POST',
-          body: formData
-        });
-        const result = await res.json();
-        if (result.success) { showStep(4); buildReview(); }
-        else alert('Upload failed: ' + result.message);
-      } catch (err) { alert('Upload error.'); }
-    }
-
-    function buildReview() {
-      const contact = document.getElementById('phone').value;
-      const wallet = document.getElementById('wallet').value || 'Not provided';
-      document.getElementById('review').innerHTML = `
-        <p><strong>Owner:</strong> ${document.getElementById('fullName').value}</p>
-        <p><strong>WhatsApp:</strong> ${contact}</p>
-        <p><strong>Wallet:</strong> ${wallet}</p>
-        <p><strong>Business:</strong> ${document.getElementById('businessName').value}</p>
-        <p><strong>Type:</strong> ${document.getElementById('businessType').value}</p>
-        <p><strong>Location:</strong> ${document.getElementById('town').value}, ${document.getElementById('city').value}</p>
-      `;
-    }
-
-    async function submitOnboarding() {
-      const btn = document.getElementById('submitBtn');
-      const errorDiv = document.getElementById('errorMsg');
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-
-      try {
-        await fetch(`${API_BASE}/submit-onboarding`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ smeId })
-        });
-
-        const kycRes = await fetch('https://ks1-verification-kyc-system-2.onrender.com/api/kyc/start-verification', {
+        // Step 2: Create SME profile
+        res = await fetch('https://ks1-sme-onboarding-system.onrender.com/api/onboarding/create-sme-profile', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            smeId,
-            businessName: document.getElementById('businessName').value,
-            ownerName: document.getElementById('fullName').value,
-            idType: document.getElementById('idType').value,
-            idNumber: document.getElementById('idNumber').value,
-            documentUrls: [uploadedDocUrl],
-            city: document.getElementById('city').value
+            userId: data1.userId,
+            businessName: `${fullName} Business`,
+            businessType: 'Entrepreneur',
+            industry: 'General',
+            country: 'Ghana',
+            city: 'Accra',
+            address: 'Not specified'
           })
         });
-        const kycResult = await kycRes.json();
 
-        if (kycResult.success && kycResult.status === 'KYC_APPROVED') {
-          alert('✅ Verified! You’ll get your Trade ID via WhatsApp.');
-        } else {
-          alert('✅ Submitted! Under review. WhatsApp update soon.');
-        }
-        window.location.href = 'https://ks1-alkebulan-pay.pages.dev';
+        if (!res.ok) throw new Error('Failed to create business profile');
+        const data2 = await res.json();
+
+        // Step 3: Submit onboarding
+        await fetch('https://ks1-sme-onboarding-system.onrender.com/api/onboarding/submit-onboarding', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ smeId: data2.smeId })
+        });
+
+        alert('✅ Your application has been submitted! You will be contacted via WhatsApp.');
+        window.location.href = '/';
       } catch (err) {
-        errorDiv.textContent = 'Submission failed: ' + (err.message || 'Unknown error');
-        btn.disabled = false;
-        btn.textContent = 'Submit Registration';
+        document.getElementById('error').textContent = err.message;
       }
-    }
+    });
   </script>
 </body>
 </html>
